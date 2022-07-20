@@ -77,6 +77,7 @@ def update(sno):
         user.number = number
         user.email = email
         db.session.add(user)
+        
         db.session.commit()
         return redirect('/')
     user = User.query.filter_by(sno=sno).first()
