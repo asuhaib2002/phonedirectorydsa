@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 import linked_list
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://dlifydrsectuyq:0f9b4424ae8f55ecc5cc2156ef647e7386abf7006d606414d5770a9fdaba3ba3@ec2-54-87-179-4.compute-1.amazonaws.com:5432/dejq2c7lc3ktan'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://dlifydrsectuyq:0f9b4424ae8f55ecc5cc2156ef647e7386abf7006d606414d5770a9fdaba3ba3@ec2-54-87-179-4.compute-1.amazonaws.com:5432/dejq2c7lc3ktan'
 app.config['SECRET_KEY'] = 'b21dc07d19eba5e6f64f026f'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -77,7 +77,7 @@ def update(sno):
         user.number = number
         user.email = email
         db.session.add(user)
-        
+
         db.session.commit()
         return redirect('/')
     user = User.query.filter_by(sno=sno).first()
